@@ -1,0 +1,126 @@
+body .bg{
+    font-family: Arial, sans-serif;
+    font-size: 22px;
+    margin: 0;
+    padding: 0;
+    background-color:#fff3e0;
+}
+
+/*  */
+/* ส่วนหััว */
+.container {
+    margin-top: 20px;
+    width: 100%;
+    padding: 20px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* KMITL News */
+.title h1 {
+    font-size: 50px;
+    line-height: 50px;
+    font-weight: bold;
+    color: #f57c00;
+}
+
+/* ข่าวประชาสัมพันธ์ */
+.title p {
+    font-size: 25px;
+    color: #f57c00;
+}
+
+/*เลือกหมวดหมู่*/
+.nav-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/*ระยะห่างระหว่างสองปุ่มเลือกหมวดหมู่*/
+.nav-tabs-responsive li {
+    margin-right: 15px;
+}
+
+/*ขนาดตัวอักษรในปุ่มเลือกหมวดหมู่*/
+.nav-tabs-responsive .text {
+    font-size: 20px;
+}
+
+/* แท็บที่ไม่ได้เลือก */
+.nav-tabs .category a {
+    padding: 10px 20px;
+    background-color: #ffcc80;
+    color: #000;
+    border-radius: 5px;
+    margin: 0 10px;
+}
+
+/* แท็บที่เลือก */
+.nav-tabs .category.active a {
+    background-color: #ffa726;
+    color: #fff;
+}
+
+/*ระยะห่างระหว่างหมวดหมู่กับส่วนของข่าว*/
+.tab-content {
+    margin-top: 20px;
+}
+
+/* ข่าวจะถูกจัดเรียงให้มีระยะห่างระหว่างกันเท่าๆ กัน */
+.news-carousel {
+    display: flex;
+    justify-content: space-between;
+    /* มีการจัดตำแหน่งแบบสัมพันธ์ (relative) โดยที่เนื้อหาหรือองค์ประกอบลูกที่ใหญ่เกินกว่าขอบของ .news-slider จะถูกซ่อนไว้ (ไม่แสดงเนื้อหาที่อยู่นอกขอบเขตของมัน) ซึ่งมักใช้ในเลย์เอาต์แบบสไลด์ เพื่อซ่อนเนื้อหาที่เลื่อนออกจากหน้าจอ */
+    position: relative;
+    overflow: hidden;
+}
+
+/*ส่วนของข่าว*/
+.news-item {
+    width: 30%; /* เพื่อให้มีขนาด 3 ช่องในแนวนอน */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    padding: 10px;
+    background-color: #fff;
+}
+
+/*ส่วนรูปของข่าว*/
+.news-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/*ส่วนเนื้อหาของข่าว*/
+.news-item h3 {
+    font-size: 18px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+/*อ่านเพิ่มเติม*/
+.wg-tab-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/*ปุ่มกดอ่านเพิ่มเติม*/
+.wg-tab-link .btn-primary {
+    background-color: #ffa726;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+/*ปุ่มกดอ่านเพิ่มเติม เมื่อนำเมาส์ไปวาง*/
+.wg-tab-link .btn-primary:hover {
+    background-color: #ff9800;
+}
