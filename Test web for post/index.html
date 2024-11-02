@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post News</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>โพสต์ข่าวสาร</h1>
+        <form id="newsForm" enctype="multipart/form-data">
+            <label for="title">หัวข้อข่าว:</label>
+            <input type="text" id="title" name="title" required><br><br>
+
+            <label for="content">เนื้อหาข่าว:</label>
+            <textarea id="content" name="content" required></textarea><br><br>
+
+            <label for="image">เลือกรูปภาพ:</label>
+            <input type="file" id="image" name="image" accept="image/*" required><br><br>
+
+            <button type="submit">โพสต์ข่าว</button>
+        </form>
+
+        <div id="response"></div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
