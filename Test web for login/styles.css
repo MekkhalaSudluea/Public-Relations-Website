@@ -243,21 +243,193 @@ button:hover {
     font-size: 18px; /* ลดขนาดฟอนต์ของ placeholder(ไอคอนรูปคนกับรูปล็อก) เมื่อ focus */
 }
 
-/* ถึงบรรทัด 313 */
+/* เมื่อกดที่กล่อง จะมีเอฟเฟคเส้นตรง */
 .input100:focus + .focus-input100::before {
-    width: 100%;
+    width: 100%; /* ขยายเส้นด้านล่างให้ครอบคลุมความกว้างทั้งหมดเมื่อ focus */
 }
   
 /* เมื่อ input มีค่า */
 .has-val.input100 + .focus-input100::after {
-    top: -22px;
-    font-size: 18px;
+    top: -22px; /* ย้ายตำแหน่ง placeholder ขึ้นเมื่อมีค่าภายใน input */
+    font-size: 18px; /* ลดขนาดฟอนต์ของ placeholder เมื่อมีค่าภายใน */
 }
   
 .has-val.input100 + .focus-input100::before {
-    width: 100%;
+    width: 100%; /* ขยายเส้นด้านล่างให้ครอบคลุมความกว้างทั้งหมดเมื่อมีค่า */
 }
   
 .has-val.input100 {
-    padding-left: 5px;
+    padding-left: 5px; /* ลดการเว้นขอบด้านซ้ายของ input เมื่อมีค่า */
+}
+
+/*==================================================================
+[ Restyle Checkbox ]
+การออกแบบ checkbox ใหม่ */
+
+/* สำหรับกรณีผู้ใช้ลืมรหัสผ่าน */
+.contact100-form-checkbox {
+    padding-left: 5px; /* กำหนดการเว้นระยะด้านซ้าย */
+    padding-top: 5px; /* กำหนดการเว้นระยะด้านบน */
+    padding-bottom: 35px; /* กำหนดระยะห่างทางด้านล่าง */
+    cursor: pointer; /* แสดงว่าเป็นลิงก์ที่คลิกได้ */
+}
+  
+.txt1 {
+    font-family: Poppins-Regular; /* ฟอนต์สำหรับข้อความ */
+    font-size: 13px; /* ขนาดฟอนต์ */
+    color: #fff; /* สีข้อความ */
+    line-height: 1.2; /* ความสูงของบรรทัด */
+    text-decoration: underline; /* ทำให้ดูเหมือนลิงก์ */
+}
+  
+  .txt1:hover {
+    color: #e5e5e5;  /* เปลี่ยนสีเมื่อเลื่อนเมาส์ไปที่ลิงก์ */
+}
+
+/*------------------------------------------------------------------
+[ Button ]
+การออกแบบปุ่ม Login */
+.container-login100-form-btn {
+    width: 100%; /* กำหนดความกว้างของปุ่มให้เต็มความกว้างขององค์ประกอบใหญ่ */
+    display: flex; /* ใช้ Flexbox เพื่อจัดเรียงองค์ประกอบภายใน */
+    flex-wrap: wrap; /* อนุญาตให้องค์ประกอบภายในแตกแถวเมื่อมีเนื้อที่ไม่เพียงพอ */
+    justify-content: center; /* จัดกึ่งกลางองค์ประกอบภายในในแนวนอน */
+}
+
+.login100-form-btn {
+    font-family: Poppins-Medium; /* กำหนดฟอนต์ที่ใช้ในปุ่ม */
+    font-size: 16px; /* ขนาดตัวอักษร */
+    color: #555555; /* สีตัวอักษร */
+    line-height: 1.2; /* ความสูงของบรรทัด */
+  
+    display: flex; /* ใช้ Flexbox เพื่อจัดเรียงเนื้อหาภายใน */
+    justify-content: center; /* จัดกึ่งกลางเนื้อหาในแนวนอน */
+    align-items: center; /* จัดกึ่งกลางเนื้อหาในแนวตั้ง */
+    padding: 0 20px; /* ระยะห่างภายใน (ซ้าย-ขวา) ของปุ่ม */
+    min-width: 120px; /* กำหนดความกว้างขั้นต่ำของปุ่ม */
+    height: 50px; /* กำหนดความสูงของปุ่ม */
+    border-radius: 25px; /* กำหนดความโค้งของมุมปุ่ม */
+  
+    background: #9152f8; /* สีพื้นหลังของปุ่ม */
+    background: -webkit-linear-gradient(bottom, #7579ff, #b224ef); /* Gradient สำหรับเบราว์เซอร์ที่ใช้ WebKit */
+    background: -o-linear-gradient(bottom, #7579ff, #b224ef); /* Gradient สำหรับเบราว์เซอร์ Opera */
+    background: -moz-linear-gradient(bottom, #7579ff, #b224ef); /* Gradient สำหรับเบราว์เซอร์ Firefox */
+    background: linear-gradient(bottom, #7579ff, #b224ef); /* Gradient ทั่วไปสำหรับเบราว์เซอร์ */
+    position: relative; /* กำหนดให้ตำแหน่งของปุ่มเป็น relative */
+    z-index: 1; /* กำหนดลำดับชั้นของปุ่มให้สูงกว่าองค์ประกอบอื่น ๆ */
+  
+    transition: all 0.4s; /* ตั้งค่า transition เพื่อให้การเปลี่ยนแปลงในปุ่มมีความราบรื่น */
+}
+
+/*สร้างเลเยอร์พื้นหลังที่มีลักษณะโปร่งใสใต้ปุ่ม login */
+.login100-form-btn::before {
+    content: ""; /* สร้างเนื้อหาที่ว่างเพื่อใช้สำหรับการตกแต่ง */
+    display: block; /* กำหนดให้เป็นบล็อกเพื่อให้สามารถควบคุมขนาดและตำแหน่งได้ */
+    position: absolute; /* ตำแหน่งที่แน่นอนภายในปุ่ม */
+    z-index: -1; /* ตั้งค่าให้ต่ำกว่าลำดับชั้นของปุ่ม ทำให้มันอยู่ด้านหลัง */
+    width: 100%; /* ความกว้างของกล่องครอบคลุมเต็มที่ของปุ่ม */
+    height: 100%; /* ความสูงของกล่องครอบคลุมเต็มที่ของปุ่ม */
+    border-radius: 25px; /* กำหนดความโค้งของมุมให้เหมือนกับปุ่ม */
+    background-color: #fff; /* กำหนดสีพื้นหลังเป็นสีขาว */
+    top: 0; /* ตำแหน่งจากด้านบนเริ่มต้นที่ 0 */
+    left: 0; /* ตำแหน่งจากด้านซ้ายเริ่มต้นที่ 0 */
+    opacity: 1; /* ความโปร่งใสของกล่องเต็ม 100% */
+
+    transition: all 0.4s; /* ตั้งค่า transition เพื่อให้การเปลี่ยนแปลงมีความราบรื่น */
+}
+
+/*เปลี่ยนสีตัวอักษรในปุ่ม login ให้เป็นสีขาว เมื่อเมาส์ชี้ไปที่ปุ่ม*/
+.login100-form-btn:hover {
+    color: #fff;
+}
+
+.login100-form-btn:hover:before {
+    opacity: 0; /* ทำให้พื้นหลังหายไปเมื่อชี้เมาส์ไปที่ปุ่ม */
+}
+
+/*================================================================== */
+
+/* สำหรับกรณีผู้ใช้สร้างแอคเคาท์ */
+
+.text-center {
+    text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
+    padding-left: 5px; /* กำหนดการเว้นระยะด้านซ้าย */
+    padding-top: 15px; /* กำหนดการเว้นระยะด้านบน */
+    cursor: pointer; /* แสดงว่าเป็นลิงก์ที่คลิกได้ */
+}
+
+.txt1 {
+    font-family: Poppins-Medium;  /* กำหนดฟอนต์ */
+    font-size: 13px;
+    color: #fff; /* สีของลิงก์ */
+    text-decoration: none; /* ลบขีดเส้นใต้ */
+    font-weight: 500; /* ทำให้ตัวอักษรมีความหนาขึ้นเล็กน้อย */
+    display: inline-flex; /* ใช้ flexbox เพื่อจัดเรียงไอคอนและข้อความในแนวเดียวกัน */
+    align-items: center; /* จัดให้อยู่ในแนวกลาง */
+    transition: all 0.3s ease; /* ทำให้เกิดเอฟเฟกต์เมื่อนำเมาส์ไปวาง */
+}
+
+.txt1:hover {
+    text-decoration: underline; /* ขีดเส้นใต้ลิงก์เมื่อนำเมาส์ไปวาง */
+    transform: scale(1.05); /* ขยายลิงก์เล็กน้อยเมื่อนำเมาส์ไปวาง */
+}
+
+/*------------------------------------------------------------------
+[ Alert validate ]
+การออกแบบแจ้งเตือนกรณี validation(ตรวจสอบ) ไม่ผ่าน */
+
+/* แจ้งเตือนเมื่อเกิดข้อผิดพลาดในการล็อกอิน เช่นลืมกรอกรหัส*/
+
+/* .validate-input: กำหนดตำแหน่งขององค์ประกอบให้เป็น relative 
+   เพื่อช่วยให้ออบเจ็กต์ที่กำหนดตำแหน่งแบบ absolute ภายในสามารถใช้อ้างอิงตำแหน่งได้ */
+   .validate-input {
+    position: relative;
+}
+  
+/*แสดงข้อความแจ้งเตือนในกรอบสีขาวที่มีเส้นขอบสีแดงและมุมโค้งเล็กน้อย */
+.alert-validate::before {
+    content: attr(data-validate); /* ดึงข้อความจาก data-validate attribute */
+    position: absolute; /* กำหนดตำแหน่งแบบ absolute ให้ยึดกับ validate-input */
+    max-width: 70%; /* กำหนดความกว้างสูงสุด 70% */
+    background-color: #fff; /* พื้นหลังสีขาว */
+    border: 1px solid #c80000; /* เส้นขอบสีแดง */
+    border-radius: 2px; /* มุมโค้งเล็กน้อย */
+    padding: 4px 25px 4px 10px; /* ระยะห่างภายใน */
+    top: 50%; /* กำหนดตำแหน่งให้กลางในแนวตั้ง */
+    transform: translateY(-50%); /* ย้ายตำแหน่งขึ้นให้จัดกลาง */
+    right: 0px; /* ขยับกรอบแจ้งเตือนไปด้านขวาสุด */
+    pointer-events: none; /* ป้องกันการโต้ตอบกับเมาส์ */
+    
+    font-family: Poppins-Regular; /* ฟอนต์ */
+    color: #c80000; /* สีข้อความแจ้งเตือนเป็นสีแดง */
+    font-size: 13px; /* ขนาดตัวอักษร */
+    line-height: 1.4; /* ระยะห่างระหว่างบรรทัด */
+    text-align: left; /* จัดข้อความชิดซ้าย */
+  
+    visibility: hidden; /* เริ่มต้นซ่อนแจ้งเตือน */
+    opacity: 0; /* เริ่มต้นความโปร่งใสเป็น 0 */
+  
+    transition: opacity 0.4s; /* เพิ่มเอฟเฟกต์ transition ที่ความโปร่งใส */
+}
+
+/* แก้ไขตรงนี้ ในการสร้าง Alert ให้ได้ */
+
+/*แสดงไอคอนแจ้งเตือนสีแดงที่ใช้ฟอนต์ FontAwesome */
+.alert-validate::after {
+    content: "\f12a"; /* ดึงไอคอนจาก FontAwesome */
+    font-family: FontAwesome; /* ฟอนต์สำหรับไอคอน */
+    font-size: 16px; /* ขนาดไอคอน */
+    color: #c80000; /* สีไอคอนเป็นสีแดง */
+  
+    display: block; /* จัดการแสดงผล */
+    position: absolute; /* กำหนดตำแหน่งแบบ absolute */
+    top: 50%; /* จัดให้อยู่ตรงกลางในแนวตั้ง */
+    transform: translateY(-50%); /* เลื่อนตำแหน่งเพื่อจัดกลาง */
+    right: 5px; /* ขยับตำแหน่งไอคอนไปทางขวา */
+}
+
+/* แสดงข้อความแจ้งเตือนเมื่อผู้ใช้ hover บนองค์ประกอบ */
+.alert-validate:hover:before {
+    visibility: visible; /* แสดงแจ้งเตือน */
+    opacity: 1; /* ความโปร่งใสเต็มที่ */
 }
