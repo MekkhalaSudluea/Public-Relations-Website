@@ -41,7 +41,7 @@ body .bg {
     font-family: "Kanit", sans-serif;
     display: flex;
     justify-content: center;
-    background-color: #000; /* พื้นหลังปุ่มกดเลือกหมวดหมู่ */
+    background-color: #424242; /* พื้นหลังปุ่มกดเลือกหมวดหมู่ */
     border-radius: 15px;  /* ความโค้งของขอบ */
     width: 150;  /* ความยาวพื้นหลังสีดำ */
     margin-left: auto;  /* ให้พื้นหลังสีดำอยู่ตรงกลาง */
@@ -167,3 +167,69 @@ body .bg {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+    /* เมื่อหน้าจอมีขนาดเล็ก (เช่น มือถือ หรือแท็บเล็ต) */
+    .nav-tabs {
+        width: 100%;  /* ปรับให้ปุ่มเลือกหมวดหมู่เต็มหน้าจอ */
+        flex-direction: column;  /* เปลี่ยนแถวแนวนอนให้เป็นแนวตั้ง */
+    }
+
+    .nav-tabs .category a {
+        width: 100%;  /* ปรับความกว้างของแต่ละแท็บให้เต็มหน้าจอ */
+        padding: 15px 0;  /* ปรับขนาดของปุ่มให้ใหญ่ขึ้น */
+    }
+
+    .nav-tabs .category.active a {
+        background-color: #ff9800;
+    }
+
+    .news-carousel {
+        flex-direction: column; /* เปลี่ยนแถวเป็นแนวตั้ง */
+        align-items: center; /* จัดข่าวให้อยู่กลาง */
+    }
+
+    /* ปรับขนาดกล่องข่าว */
+    .news-item {
+        width: 100%;  /* ทำให้กล่องข่าวเต็มหน้าจอ */
+        height: auto; /* ให้ความสูงปรับอัตโนมัติ */
+    }
+
+    /* ปรับขนาดรูปภาพให้เหมาะสม */
+    .news-item img {
+        height: 200px; /* ปรับความสูงของรูปให้พอดีกับหน้าจอ */
+    }
+
+    .news-item h3 {
+        font-size: 16px; /* ปรับขนาดตัวอักษร */
+    }
+
+    .wg-tab-link .btn-primary {
+        padding: 8px 20px;  /* ปรับขนาดปุ่มให้เล็กลง */
+    }
+}
+
+@media (max-width: 480px) {
+    /* เมื่อหน้าจอเล็กลง เช่น บนมือถือ */
+    .nav-tabs .category a {
+        padding: 12px 0;  /* ปรับให้ปุ่มมีขนาดเล็กลง */
+        font-size: 14px;  /* ปรับขนาดตัวอักษรให้เหมาะสม */
+    }
+
+    .news-item {
+        width: 100%;  /* ให้กล่องข่าวเต็มหน้าจอ */
+        height: auto;
+    }
+
+    .news-item img {
+        height: 180px; /* ปรับความสูงของรูปภาพ */
+    }
+
+    .news-item h3 {
+        font-size: 14px; /* ปรับขนาดตัวอักษร */
+    }
+
+    .wg-tab-link .btn-primary {
+        padding: 6px 15px;  /* ปรับขนาดปุ่มให้เล็กที่สุด */
+    }
+}
