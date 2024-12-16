@@ -1,3 +1,9 @@
+
+้html {
+    font-size: 16px;
+    font-family: "Kanit", sans-serif;
+}
+
 /* Body and global settings */
 body {
     font-family: "Kanit", sans-serif;
@@ -8,32 +14,35 @@ body {
 
 /* Container */
 .container {
-    max-width: 600px;
-    margin: 30px auto;
     background-color: #fff;
     padding: 30px;
     border-radius: 10px;
+    max-width: 900px; /* จำกัดความกว้างสูงสุด */
+}
+
+.costom-container {
+    
+    height: auto; /* ปรับความสูงตามเนื้อหา */
+    height: auto; /* ปรับความสูงตามเนื้อหา */
+    margin: 30px auto;
+    padding: 30px;
+    background-color: #fff;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease;
 }
 
-.container:hover {
+.custom-container:hover {
     box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 /* Header */
-h1 {
+.text-center {
     text-align: center;
-    font-size: 2em;
+    font-size: 3rem;
+    font-weight: bold;
     color: #f57c00;
     margin-top: 30px;
     margin-bottom: 20px;
-}
-
-/* Form */
-form {
-    display: flex;
-    flex-direction: column;
 }
 
 /* Labels */
@@ -42,6 +51,7 @@ label {
     font-weight: 500;
     color: #333;
     margin-bottom: 8px;
+    display: block;
 }
 
 /* Inputs and Textarea */
@@ -52,6 +62,7 @@ textarea {
     border-radius: 5px;
     font-size: 1rem;
     transition: border-color 0.3s ease;
+    width: 100%;
 }
 
 input[type="text"]:focus,
@@ -60,9 +71,14 @@ textarea:focus {
     outline: none;
 }
 
-textarea {
-    min-height: 150px;
-    resize: vertical;
+.custom-textarea {
+    width: 100%; /* ใช้ความกว้างเต็มพื้นที่ */
+    height: 200px; /* กำหนดความสูงเริ่มต้น */
+    resize: vertical; /* อนุญาตให้ปรับขนาดในแนวตั้ง */
+    padding: 10px; /* เพิ่มระยะห่างด้านใน */
+    font-size: 1rem; /* กำหนดขนาดตัวอักษร */
+    border: 1px solid #ccc; /* เพิ่มขอบ */
+    border-radius: 5px; /* ทำขอบมน */
 }
 
 /* File input */
@@ -125,7 +141,6 @@ button:hover {
     font-family: 'Kanit', sans-serif; /* เปลี่ยนฟอนต์ */
     font-size: 1rem;
     padding: 10px 20px;
-    line-height: 1; /* ให้ความสูงของปุ่มพอดีกับฟอนต์ */
     background-color: #ff9800;
     color: white;
     border: none;
@@ -135,11 +150,11 @@ button:hover {
 
 /* ให้ปุ่มชิดกับขอบของ container */
 .align-to-container {
-    max-width: 640px; /* กำหนดให้ตรงกับ container */
+    max-width: 900px; /* กำหนดให้ตรงกับ container */
     margin: 0 auto; /* จัดตรงกลาง */
 }
 
-button:hover {
+.button-wrapper button:hover {
     background-color: #f57c00;
 }
 
