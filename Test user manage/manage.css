@@ -1,14 +1,30 @@
+้html {
+  font-size: 16px;
+  font-family: "Kanit", "Poppins", sans-serif;
+}
+
+body {
+  font-family: "Kanit", sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+}
+
 /* Sidebar */
 .sidebar {
-  background-color: #161616 !important; 
+  background-color: #333333 !important; 
   height: 100vh;
   padding-top: 30px;
-  
 }
 
 /* Sidebar - info*/
 .sidebar-header {
+  font-family: "Kanit", "Poppins", sans-serif;
   margin-bottom: 30px;
+}
+
+h4{
+  font-weight: 600;
+  font-size: 2rem;
 }
 
 /* ชื่อย่อ */
@@ -18,7 +34,7 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  font-size: 24px;
+  font-size: 2rem;
   margin-bottom: 10px;
   display: flex;
   align-items: center;
@@ -39,12 +55,12 @@
 
 /* User , Add User */
 .nav-item {
+  margin-left: 5px;
   margin-bottom: 10px;
 }
 
 .nav-link {
   color: #ecf0f1 !important;
-  font-size: 16px;
   padding: 10px 15px;
   transition: background-color 0.3s, color 0.3s;
 }
@@ -59,7 +75,7 @@
 /* เปลี่ยนสีลิงก์เมื่อ Hover */
 .nav-link:hover {
   background-color: #FFB74D; /* สีเข้มขึ้นเมื่อ Hover */
-  color: #ffffff;
+  color: #000000 !important;
   border-radius: 8px;
 }
 
@@ -68,7 +84,7 @@
   position: absolute;
   bottom: 20px;
   width: 10%;
-  background-color: #161616;
+  background-color: #333333;
   border-color: #f57c00;
 }
 
@@ -89,4 +105,62 @@ h1 {
 /* User */
 .modal-title {
   font-size: 20px;
+}
+
+.btn-primary{
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-primary:hover{
+  background-color: #f57c00;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* เงาเวลาโฮเวอร์ */
+}
+/* ------------------------------------------------------------------ */
+/* Add user*/
+
+/* Add User Button */
+.btn-success{
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-success:hover{
+  background-color: #f57c00;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* เงาเวลาโฮเวอร์ */
+}
+
+/* Reset Button */
+.btn-warning{
+  background-color: #8D8D8D;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-warning:hover{
+  background-color: #6F6F6F;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* เงาเวลาโฮเวอร์ */
+}
+
+
+/* Cancle Button */
+.btn-secondary{
+  background-color: #8D8D8D;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-secondary:hover{
+  background-color: #6F6F6F;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* เงาเวลาโฮเวอร์ */
 }
