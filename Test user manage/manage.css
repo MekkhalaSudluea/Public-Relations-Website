@@ -1,0 +1,92 @@
+/* Sidebar */
+.sidebar {
+  background-color: #161616 !important; 
+  height: 100vh;
+  padding-top: 30px;
+  
+}
+
+/* Sidebar - info*/
+.sidebar-header {
+  margin-bottom: 30px;
+}
+
+/* ชื่อย่อ */
+.user-initials {
+  background-color: #5e4434;
+  color: #fff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 24px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.styled-hr {
+  color: #f57c00;
+}
+
+/* User Management */
+.sidebar h4 {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+/* User , Add User */
+.nav-item {
+  margin-bottom: 10px;
+}
+
+.nav-link {
+  color: #ecf0f1 !important;
+  font-size: 16px;
+  padding: 10px 15px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* สีลิงก์ที่กำลังถูกเลือก */
+.nav-link.active {
+  background-color: #FFE0B2; /* สีเข้มสำหรับลิงก์ที่เลือก */
+  color: #000000 !important; /* สีข้อความ */
+  border-radius: 8px;
+}
+
+/* เปลี่ยนสีลิงก์เมื่อ Hover */
+.nav-link:hover {
+  background-color: #FFB74D; /* สีเข้มขึ้นเมื่อ Hover */
+  color: #ffffff;
+  border-radius: 8px;
+}
+
+/* Logout button */
+.logout-btn {
+  position: absolute;
+  bottom: 20px;
+  width: 10%;
+  background-color: #161616;
+  border-color: #f57c00;
+}
+
+/* Main Content */
+.content {
+  padding: 20px;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+/* Modal Styling (POP-UP) Add User*/
+.modal-body {
+  padding: 30px;
+}
+
+/* User */
+.modal-title {
+  font-size: 20px;
+}
