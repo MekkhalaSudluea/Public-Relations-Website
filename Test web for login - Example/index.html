@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- ชื่อแท็บของหน้าเว็บ -->
+	<title>Login V3</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- ไอคอนของหน้าเว็บ -->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+	
+	<!-- เชื่อมโยงไฟล์ CSS ของ Bootstrap สำหรับการจัดการเลย์เอาท์ -->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	
+	<!-- เชื่อมโยงฟอนต์จาก Font Awesome สำหรับใช้ไอคอน -->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	
+	<!-- ฟอนต์ Material Design Icons -->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+	
+	<!-- CSS สำหรับการสร้างเอฟเฟกต์การเคลื่อนไหว -->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+	
+	<!-- CSS สำหรับเมนู Hamburger (เมนูสามขีด) -->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+	
+	<!-- CSS สำหรับ Animsition, ใช้ในการทำ transition (การเปลี่ยนหน้าจออย่างนุ่มนวล) -->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+	
+	<!-- CSS สำหรับ Select2 (การปรับแต่ง dropdown) -->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	
+	<!-- CSS สำหรับ Date Range Picker (การเลือกช่วงวันที่) -->
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+	
+	<!-- CSS ที่กำหนดค่า utility ของหน้า -->
+	<link rel="stylesheet" type="text/css" href="css/util.css">  
+	<!-- CSS หลักสำหรับการออกแบบหน้าเว็บ -->
+	<link rel="stylesheet" type="text/css" href="css/main.css"> 
+</head>
+<body>
+	
+	<!-- Container หลักของหน้า login -->
+	<div class="limiter">
+		<!-- พื้นหลังของ container ที่เป็นภาพ -->
+		<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+			<div class="wrap-login100">
+				<!-- ฟอร์มสำหรับให้ผู้ใช้เข้าสู่ระบบ -->
+				<form class="login100-form validate-form">
+					<!-- โลโก้ในฟอร์ม login -->
+					<span class="login100-form-logo">
+						<i class="zmdi zmdi-landscape"></i>
+					</span>
+
+					<!-- หัวข้อฟอร์ม Login -->
+					<span class="login100-form-title p-b-34 p-t-27">
+						Log in
+					</span>
+
+					<!-- Input สำหรับ Username -->
+					<div class="wrap-input100 validate-input" data-validate = "Enter username">
+						<input class="input100" type="text" name="username" placeholder="Username">
+						<!-- ไอคอนสำหรับช่อง Username -->
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+					</div>
+
+					<!-- Input สำหรับ Password -->
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<input class="input100" type="password" name="pass" placeholder="Password">
+						<!-- ไอคอนสำหรับช่อง Password -->
+						<span class="focus-input100" data-placeholder="&#xf191;"></span>
+					</div>
+
+
+					<!--เตรียมตัวแก้ตรงนี้ด้วย ใชเลืมรหัสทำหน้าที่ลิ้งค์ไปยังหน้าาฟอร์มลืมรหัส -->
+					<!-- ลิงก์สำหรับกรณีผู้ใช้ลืมรหัสผ่าน -->
+					<div class="contact100-form-checkbox">
+						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+						<label class="label-checkbox100" for="ckb1">
+							Forgot Password?
+						</label>
+					</div>
+
+					<!-- ปุ่มสำหรับการเข้าสู่ระบบ -->
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Login
+						</button>
+					</div>
+
+					<!-- ลิงก์สำหรับสร้างแอคเคาท์ -->
+					<div class="text-center p-t-90">
+						<a class="txt1" href="#">
+							Create your account <i class="fa fa-arrow-right" aria-hidden="true"></i>
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	<!-- สร้าง dropdown -->
+	<div id="dropDownSelect1"></div>
+	
+	<!-- เชื่อมโยง JavaScript libraries ต่างๆ -->
+	<!-- jQuery library -->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	
+	<!-- Animsition สำหรับการเปลี่ยนหน้าอย่างนุ่มนวล -->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+	
+	<!-- JavaScript ของ Bootstrap -->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	
+	<!-- JavaScript สำหรับ Select2 -->
+	<script src="vendor/select2/select2.min.js"></script>
+	
+	<!-- JavaScript สำหรับ Date Range Picker -->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+	
+	<!-- JavaScript สำหรับ countdown -->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+	
+	<!-- JavaScript หลักสำหรับการจัดการฟังก์ชันต่าง ๆ ของหน้า -->
+	<script src="js/main.js"></script>
+
+</body>
+</html>

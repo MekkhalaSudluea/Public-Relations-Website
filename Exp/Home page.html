@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KMITL News</title>
+    <link rel="stylesheet" href="Home page.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="bg">
+        <!-- ส่วนหัว -->
+        <div class="title">
+            <h1>KMITL News</h1>
+            <p>ข่าวประชาสัมพันธ์</p>
+        </div>
+
+        <!-- ปุ่มเลือกหมวดหมู่ -->
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="category active" onclick="loadNews('kmitl')">
+                <a href="#tab1" role="tab" data-toggle="tab">KMITL News</a>
+            </li>
+            <li role="presentation" class="category" onclick="loadNews('facebook')">
+                <a href="#tab2" role="tab" data-toggle="tab">Facebook</a>
+            </li>
+        </ul>
+
+        <!-- ข่าวประชาสัมพันธ์ -->
+        <div id="news-container" class="news-carousel">
+            <!-- ข่าวจะถูกแสดงที่นี่ -->
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="script.js"></script> <!-- เชื่อมต่อไฟล์ JavaScript -->
+</body>
+</html>
