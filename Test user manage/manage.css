@@ -9,6 +9,7 @@ body {
   font-size: 16px;
 }
 
+/* ----------------------------------------------- */
 /* Sidebar */
 .sidebar {
   background-color: #333333 !important; 
@@ -88,23 +89,42 @@ h4{
   border-color: #f57c00;
 }
 
+/* -------------------------------------------------------- */
 /* Main Content */
 .content {
-  padding: 20px;
+  padding: 30px;
 }
 
 h1 {
-  font-size: 24px;
+  font-size: 2rem;
+}
+
+/* User , Add User */
+.title-link{
+  font-size: 2.5rem; /* = 40px */
+  margin-bottom: 20px;
 }
 
 /* Modal Styling (POP-UP) Add User*/
 .modal-body {
-  padding: 30px;
+  padding: 20px;
 }
 
-/* User */
+.modal-header{
+  background-color: #FFE0B2;
+}
+
+/*Edit User */
 .modal-title {
-  font-size: 20px;
+  font-size: 1.25rem; /* = 20px */
+}
+
+/* Role */
+
+
+.mb-3 input[type="radio"] {
+  margin-left: 20px; /* เยื้อง radio และข้อความไปทางขวา */
+  margin-right: 7px; /* เพิ่มระยะห่างระหว่าง radio และ label */  /* ระยะห่างระหว่าง Radio กับข้อความ */
 }
 
 .btn-primary{
