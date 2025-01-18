@@ -2,6 +2,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const userName = "Mekkhala Sudluea";
   const userEmail = "64200xxx@kmitl.ac.th";
+  let userToDeleteId = null; // เก็บ ID ของผู้ใช้ที่ต้องการลบชั่วคราว //บรรทัดนี้เพิ่มเข้ามาใหม่ 16.41
 
   // สร้างชื่อย่อจากชื่อและนามสกุล
   const userInitials = userName.split(" ").map(name => name[0].toUpperCase()).join("");
@@ -32,7 +33,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
       //สร้างตาราง
       let tableHTML = `
-        <h1 Class = "title link"> User </h1>
+        <h1 Class = "title-link"> User </h1>
+        <hr>
         <table class="table table-striped">
           <thead>
             <tr>
@@ -98,6 +100,46 @@ document.addEventListener("DOMContentLoaded", function () {
                   users.splice(userIndex, 1);
                   renderUserTable();
               }
+
+              // แสดง Pop up ยืนยันการลบ
+              const confirmModalHTML = `
+              <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="confirmDeleteModalLabel">Confirm Delete</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      Are you sure you want to delete this user?
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                      <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Delete</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `;
+
+            document.body.insertAdjacentHTML('beforeend', confirmModalHTML);
+
+            const confirmModal = new bootstrap.Modal(document.getElementById('confirmDeleteModal'));
+            confirmModal.show();
+
+            document.getElementById('confirmDeleteBtn').addEventListener('click', function () {
+                if (userIndex !== -1) {
+                    users.splice(userIndex, 1);
+                    renderUserTable();
+                }
+                confirmModal.hide();
+                document.getElementById('confirmDeleteModal').remove();
+            });
+
+            document.getElementById('confirmDeleteModal').addEventListener('hidden.bs.modal', function () {
+                document.getElementById('confirmDeleteModal').remove();
+            });
+
           });
       });
   }
@@ -107,7 +149,8 @@ document.addEventListener("DOMContentLoaded", function () {
    // ฟังก์ชันสำหรับ Add User
   document.getElementById("addUserBtn").addEventListener("click", function () {
       document.getElementById("pageContent").innerHTML = `
-        <h1 Class = "title link">Add User</h1>
+        <h1 Class = "title-link">Add User</h1>
+        <hr>
         <form id="addUserForm">
           <div class="mb-3">
             <label for="newFullname" class="form-label">Full Name</label>
@@ -127,7 +170,7 @@ document.addEventListener("DOMContentLoaded", function () {
           </div>
           <div class="mb-3">
             <label class="form-label">Role</label><br>
-            <input type="radio" id="newRoleAdmin" name="role" value="Admin" required> Admin
+            <input type="radio" id="newRoleAdmin" name="role" value="Admin"  required> Admin
             <input type="radio" id="newRoleEditor" name="role" value="Editor" required> Editor
           </div>
           <div class="modal-footer">
