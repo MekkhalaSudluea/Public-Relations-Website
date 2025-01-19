@@ -1,47 +1,52 @@
 // ฟังก์ชันสำหรับแสดงวันที่ปัจจุบัน
-var currentDate = new Date();
+var currentDate = new Date();  // สร้างอ็อบเจ็กต์ใหม่ที่เก็บวันที่และเวลาปัจจุบัน
 var formattedDate = currentDate.toLocaleDateString('th-TH', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric'
+    day: 'numeric',    // กำหนดให้แสดงวันที่เป็นตัวเลข (เช่น 20)
+    month: 'long',     // กำหนดให้แสดงชื่อเดือนเต็ม (เช่น มกราคม)
+    year: 'numeric'    // กำหนดให้แสดงปีในรูปแบบตัวเลข (เช่น 2025)
 });
 
 // แสดงวันที่ใน HTML
 document.getElementById('news-date').innerText = formattedDate;
+// ค้นหาธาตุใน HTML ที่มี id 'news-date' และตั้งค่าข้อความภายในให้เป็นวันที่ที่จัดรูปแบบ
 
-// สร้าง WebSocket Connection ไปยังเซิร์ฟเวอร์
-const socket = new WebSocket('ws://localhost:3000');
+// ตัวอย่างข่าวที่จะแสดงในส่วนหน้า (ไม่ต้องใช้ WebSocket)
+const newsItems = [
+  {
+    url: "https://www.thairath.co.th/news/foreign/2824925",  // URL ของข่าว
+    image: "images/bg-02.jpg",  // รูปภาพที่จะแสดงในข่าว
+    title: "พายุไต้ฝุ่น 'โทราจี' พัดถล่มฟิลิปปินส์เป็นลูกที่ 4 ในรอบ 1 เดือน",  // หัวข้อข่าว
+    date: "11 พฤศจิกายน 2024"  // วันที่ของข่าว
+  },
+  {
+    url: "https://www.thairath.co.th/news/crime/2814585",  // URL ของข่าว
+    image: "https://static.thairath.co.th/media/dFQROr7oWzulq5Fa6rBo8VwuO3SphB21QIqgETZ8BMmfUAmCdknswMWHi1UM0RYfbYf.webp",  // รูปภาพของข่าว
+    title: "บิ๊กต่าย สั่งถอดบทเรียนน้ำท่วมเชียงราย ตรวจเยี่ยมตำรวจ ให้กำลังใจผู้ประสบภัย",  // หัวข้อข่าว
+    date: "1 ตุลาคม 2024"  // วันที่ของข่าว
+  },
+  {
+    url: "https://www.thairath.co.th/news/local/2814559",  // URL ของข่าว
+    image: "https://static.thairath.co.th/media/dFQROr7oWzulq5Fa6rBo8U668X6wY5Y1uCZkxPQIPlcIzWpDnRac4voLbxU9XJEkjSG.webp",  // รูปภาพของข่าว
+    title: "สรุปสถานการณ์สาธารณภัย กระทบ 12 จังหวัด พร้อมเตือนพื้นที่เฝ้าระวังน้ำท่วม-ดินถล่ม",  // หัวข้อข่าว
+    date: "2 ตุลาคม 2024"  // วันที่ของข่าว
+  }
+];
 
-// เมื่อเชื่อมต่อได้แล้ว
-socket.onopen = function(event) {
-  console.log('Connected to WebSocket server');
-};
+// แสดงข่าวที่มีในหน้า
+const newsContainer = document.querySelector('.news-carousel');
+// ค้นหาธาตุใน HTML ที่มีคลาส 'news-carousel' ซึ่งจะเป็นตัว container สำหรับแสดงข่าว
 
-// เมื่อได้รับข้อความจากเซิร์ฟเวอร์
-socket.onmessage = function(event) {
-  console.log('Message from server: ', event.data);
-  
-  // ตัวอย่างการแสดงข่าวจากข้อความที่ได้รับ
-  const newsContainer = document.querySelector('.news-carousel');
-  const newNewsItem = document.createElement('div');
-  newNewsItem.classList.add('news-item');
-  
+// เพิ่มข่าวทั้งหมดใน newsItems เข้าไปใน news-container
+newsItems.forEach(item => {  // ใช้ forEach เพื่อวนลูปผ่านแต่ละข่าวใน array newsItems
+  const newNewsItem = document.createElement('div');  // สร้าง div ใหม่สำหรับแต่ละข่าว
+  newNewsItem.classList.add('news-item');  // เพิ่มคลาส 'news-item' ให้กับ div ใหม่
+
   newNewsItem.innerHTML = `
-    <a href="${event.data.url}" target="_blank">
-      <img src="${event.data.image}" alt="ข่าวใหม่">
-      <h3>${event.data.title}</h3>
+    <a href="${item.url}" target="_blank">
+      <img src="${item.image}" alt="ข่าวใหม่">  // แสดงรูปภาพของข่าว
+      <h3>${item.title}</h3>  // แสดงหัวข้อของข่าว
     </a>
-    <p class="news-date"> <i class="fas fa-clock"></i> <span class="news-date-value">${event.data.date}</span></p>
+    <p class="news-date"><i class="fas fa-clock"></i> <span class="news-date-value">${item.date}</span></p>  // แสดงวันที่ของข่าว
   `;
-  newsContainer.appendChild(newNewsItem);
-};
-
-// ถ้ามีการเชื่อมต่อผิดพลาด
-socket.onerror = function(error) {
-  console.error('WebSocket Error: ', error);
-};
-
-// เมื่อ WebSocket ปิดการเชื่อมต่อ
-socket.onclose = function(event) {
-  console.log('Disconnected from WebSocket server');
-};
+  newsContainer.appendChild(newNewsItem);  // เพิ่ม div ของข่าวใหม่ที่สร้างขึ้นไปยัง container สำหรับแสดงข่าว
+});
