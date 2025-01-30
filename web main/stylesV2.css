@@ -18,10 +18,12 @@ body {
     background-color: #fff3e0;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้ navbar */
     padding: 10px 20px;
+    width: 100%;
 }
 
 .search-form{
     width: 500px; /* กำหนดความกว้างของฟอร์ม */
+    max-width: 100%;
 }
 
 .input-group {
@@ -99,13 +101,12 @@ body {
 }
 
 .nav-pills {
-    font-family: "Kanit", "Poppins", sans-serif;
     display: flex; /* ทำให้ปุ่มเรียงกันในแนวนอน */
     justify-content: center;
     flex-wrap: wrap; /* ให้ปุ่มไปยังบรรทัดถัดไปเมื่อพื้นที่ไม่พอ */
     background-color: #424242; /* พื้นหลังของพื้นหลังปุ่มสีดำ */
     border-radius: 15px; /* ความโค้งของมุมพื้นหลัง */
-    max-width: 500px; /* จำกัดความกว้างของพื้นหลัง */
+    max-width: 600px; /* จำกัดความกว้างของพื้นหลัง */
     width: 100%; /* ให้ขยายเต็มพื้นที่ */
     margin: 0 auto; /* ให้พื้นหลังอยู่กลางหน้า */
     padding: 0; /* ลบการ Padding ของพื้นหลัง */
@@ -120,11 +121,7 @@ body {
     padding: 15px 0; /* กำหนดขนาดปุ่มในแนวตั้ง */
     color: #fff;
     border-radius: 15px; /* มุมโค้งของปุ่ม */
-    display: flex;
-    justify-content: center;
-    align-items: center; /* จัดข้อความให้อยู่กลาง */
     text-align: center; /* ให้ข้อความอยู่กลางปุ่ม */
-    font-weight: normal;
     width: 100%; /* ปุ่มยืดเต็มพื้นที่ของพื้นหลัง */
     background-color: transparent; /* พื้นหลังปุ่มเริ่มต้นเป็นโปร่งใส */
     transition: background-color 0.3s ease;
@@ -132,13 +129,13 @@ body {
 
 /* ปุ่มที่เลือก */
 .nav-pills .nav-link.active {
-    background-color: #ff9800; /* ปุ่มสีส้มเมื่อเลือก */
-    color: #fff;
+    background-color: #e65100; /* ปุ่มสีส้มเมื่อเลือก */
+ 
 }
 
 /* ปุ่มที่ไม่ได้เลือกเมื่อเอาเมาส์ไปวาง (hover) */
 .nav-link:hover {
-    background-color: #ff9800; /* สีส้มเมื่อเมาส์ไปวาง */
+    background-color: #ff7043; /* สีส้มเมื่อเมาส์ไปวาง */
     color: #fff;
 }
 
@@ -164,14 +161,12 @@ body {
 
 /* ส่วนของข่าว */
 .news-item {
-    box-sizing: border-box;
-    text-align: center; /* จัดข้อความทั้งหมดให้อยู่ตรงกลาง */
     background-color: #fff; /* สีพื้นหลังของกล่องข่าว */
     border: 1px solid #ccc; /* เส้นขอบ */
     border-radius: 10px; /* มุมโค้ง */
-    padding: 0.1%; /* ระยะห่างภายใน */
+    padding: 1%; /* ระยะห่างภายใน */
     width: calc(33.333% - 20px); /* กำหนดขนาดคงที่เท่ากัน 3 ข่าวต่อแถว */
-    height: 420px; /* สูง */
+    height: 480px; /* สูง */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เงาของกล่อง */
     overflow: hidden;
     position: relative; /* ทำให้สามารถวางตำแหน่งลูกที่เป็น absolute ได้ภายในกล่องนี้ */
@@ -187,8 +182,8 @@ body {
     font-size: 14px; /* ปรับขนาดตัวอักษร */
     color: #888888; /* สีเทาอ่อน */
     position: absolute; /* ตำแหน่งของวันที่ไปที่มุมล่างซ้ายของกล่อง */
-    bottom: 10px; /* ระยะห่างจากด้านล่าง */
-    margin-left: 15px;
+    bottom: 20px; /* ระยะห่างจากด้านล่าง */
+    left: 15px;
 }
 
 /* เพิ่มระยะห่างระหว่างไอคอนและวันที่ */
@@ -199,18 +194,14 @@ body {
 /* ข่าวจากสำนักไหน */
 .news-category {
     color: #ff9800;
-    text-align: left;
     background-color: #ffffff;
-    font-size: 14px;
-    width: 100%;
+    font-size: 16px;
     border: none; /* เอาขอบออก */
     outline: none; /* เอาขอบที่แสดงเมื่อคลิกออก */
     border-radius: none;
-    display: block;
     padding: 0;
     position: absolute;
-    margin-left: 5px;
-    margin-top: 50px; /* ระยะห่างด้านบน */
+    margin-top: 60px; /* ระยะห่างด้านบน */
     margin-bottom: 10px;
 }
 
@@ -229,11 +220,9 @@ body {
 /* ส่วนรูปของข่าว */
 .news-item img {
     width: 100%; /* ปรับขนาดให้เต็มความกว้างของกล่อง */
-    max-width: 600px; /* ความกว้างสูงสุดของรูปภาพ */
-    height: 250px; /* ความสูง */
+    height: 270px; /* ความสูง */
     display: block; /* ทำให้รูปภาพอยู่ในบรรทัดใหม่แยกจากเนื้อหา */
-    border-radius: 10px; /* มุมโค้งของรูปภาพ */
-    margin: 0 auto; /* จัดรูปภาพให้อยู่ตรงกลาง */
+    border-radius: 8px; /* มุมโค้งของรูปภาพ */
     object-fit: cover; /* ให้รูปภาพครอบคลุมขนาดที่กำหนด */
 }
 
@@ -245,6 +234,7 @@ body {
     margin-top: 25px; /* สร้างระยะห่างระหว่างเนื้อหาข่าวกับรูป */
     line-height: 1.5; /* ปรับระยะห่างระหว่างบรรทัดของข้อความ */
     color: #333;
+    text-decoration: none;
 }
 
 /* เมื่อหน้าจอขนาดเล็กสุด (เช่น มือถือ) */
@@ -264,17 +254,23 @@ body {
     .news-item {
         flex: 1 1 100%;
         width: 100%; /* ปรับขนาดให้เต็มความกว้าง */
+        height: auto;
     }
 
     .news-carousel {
         padding: 0 20px; /* ลดระยะห่างจากขอบในหน้าจอมือถือ */
+    }
+
+    .news-date, .news-category {
+        position: relative;
+        display: inline-block;
+        margin-top: 10px;
     }
 }
 
 /* เมื่อหน้าจอขนาดเล็กมาก (เช่น มือถือจอเล็ก) */
 @media (max-width: 480px) {
     .news-item {
-        flex: 1 1 calc(100% - 20px); /* ให้แต่ละข่าวมีความกว้าง 100% ของพื้นที่ */
         width: 100%; /* ปรับขนาดให้เต็มความกว้าง */
     }
 
@@ -305,7 +301,7 @@ body {
     }
 
     .news-item img {
-        height: 200px; /* ปรับขนาดของรูปภาพ */
+        height: 220px; /* ปรับขนาดของรูปภาพ */
     }
 
     .news-item h3 {
