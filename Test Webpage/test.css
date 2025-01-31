@@ -1,0 +1,306 @@
+html body {
+    font-family: "Kanit", "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff3e0;
+}
+
+/* จอใหญ่ */
+#fullUI {
+    display: block;
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: #fff3e0;
+    padding: 10px 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-form{
+    width: 500px; /* กำหนดความกว้างของฟอร์ม */
+    max-width: 100%;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+}
+
+/* ช่องค้นหา */
+.input-group .form-control {
+    border-radius: 20px; 
+    border: 1px solid #ccc; /* เส้นขอบ */
+    transition: all 0.3s ease; /* เพิ่มเอฟเฟกต์ตอนโฟกัส */
+}
+
+.input-group .form-control:focus {
+    border-color: #5b98ba;
+    box-shadow: 0 0 5px rgba(91, 152, 186, 0.5);
+    outline: none;
+}
+
+/* ปุ่มค้นหา */
+.input-group .btn {
+    color: black;
+    background-color: #fff;
+    border-width: 1px;
+    border-color: #d3d3d3;
+    border-radius: 20px ;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.input-group .btn:hover {
+    color: black;
+    background-color: #e6510018;
+}
+
+/* ปุ่มล็อกอิน */
+.search-form .btn-primary {
+    background-color: black; /* สีพื้นหลังปุ่ม */
+    color: white; /* สีข้อความ */
+    border: none; /* ลบขอบ */
+    border-radius: 180px; /* มุมโค้ง */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* เพิ่มเอฟเฟกต์เวลาเลื่อนเมาส์ */
+}
+
+.search-form .btn-primary:hover {
+    background-color: #e65100; /* สีพื้นหลังปุ่ม */
+    color: white; /* สีข้อความ */
+    border: none; /* ลบขอบ */
+}
+
+/* KMITL News & ข่าวประชาสัมพันธ์ */
+.title {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* KMITL News */
+.title h1 {
+    font-family: "Kanit", sans-serif;
+    font-size: 50px;
+    line-height: 50px;
+    font-weight: 650;
+    color: #e65100; /* สีเข้มขึ้นเพื่อเพิ่มความโดดเด่น */
+    margin-top: 10px;
+}
+
+/* ข่าวประชาสัมพันธ์ */
+.title p {
+    font-family: "Kanit", sans-serif;
+    font-size: 27px;
+    color: #ff7043;
+}
+
+/* ปุ่มเลือกหฟมวดหมู่ */
+.nav-pills {
+    display: flex;
+    justify-content: center;
+    background-color: #424242;
+    border-radius: 15px;
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.nav-item {
+    flex-grow: 1;
+}
+
+.nav-link {
+    padding: 15px 0;
+    color: #fff;
+    border-radius: 15px;
+    text-align: center;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+/* ปุ่มที่เลือก */
+.nav-pills .nav-link.active {
+    background-color: #e65100;
+}
+
+/* ปุ่มที่ไม่ได้เลือกเมื่อเอาเมาส์ไปวาง (hover) */
+.nav-link:hover {
+    background-color: #ff7043;
+    color: #fff;
+}
+
+
+/* กล่องที่ใช้ในการแสดงข่าวทั้งหมด */
+.news-carousel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px 100px;
+}
+
+/* ส่วนของข่าว */
+.news-item {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 1%;
+    width: calc(33.333% - 20px);
+    height: 480px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+/* วันที่ของข่าว */
+.news-date {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #888;
+    position: absolute;
+    bottom: 20px;
+    left: 15px;
+}
+
+/* เพิ่มระยะห่างระหว่างไอคอนและวันที่ */
+.news-date i {
+    margin-right: 5px; 
+}
+
+/* ส่วนของข่าวเวลาเอาเมาส์มาวางค้างไว้ */
+.news-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* ข่าวจากสำนักไหน */
+.news-category {
+    color: #ff9800;
+    background-color: #ffffff;
+    font-size: 16px;
+    border: none; /* เอาขอบออก */
+    outline: none; /* เอาขอบที่แสดงเมื่อคลิกออก */
+    border-radius: none;
+    padding: 0;
+    position: absolute;
+    margin-top: 60px; /* ระยะห่างด้านบน */
+    margin-bottom: 10px;
+}
+
+.news-category:hover {
+    color: #e65100;
+    background-color: #ffffff;
+}
+
+/* ส่วนรูปของข่าว */
+.news-item img {
+    width: 100%;
+    height: 270px;
+    display: block;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* ส่วนเนื้อหาของข่าว */
+.news-item h3 {
+    font-family: "Kanit", sans-serif;
+    font-weight: 200;
+    font-size: 18px;
+    margin-top: 25px;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* แถบด้านข้าง */
+#notificationUI {
+    display: none;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100vm;
+    height: 100vh;
+    background: #fff3e0;
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* KMITL News & ข่าวประชาสัมพันธ์ */
+.notification-header {
+    text-align: center;
+    margin-top: 10px;
+    border-bottom: 2px solid #e65100;
+}
+
+h2 {
+    font-family: "Kanit", sans-serif;
+    font-size: 50px;
+    line-height: 50px;
+    font-weight: 650;
+    color: #e65100; /* สีเข้มขึ้นเพื่อเพิ่มความโดดเด่น */
+    margin-top: 10px;
+}
+
+.noti-search {
+    border-radius: 10px; 
+    border: 1px solid #ccc; /* เส้นขอบ */
+    transition: all 0.3s ease; /* เพิ่มเอฟเฟกต์ตอนโฟกัส */
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* กล่องที่ใช้ในการแสดงข่าวทั้งหมด */
+.news-list {
+    margin-top: 15px;
+}
+
+/* ส่วนของข่าว */
+.news-item-noti{
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ส่วนรูปของข่าว */
+.news-item-noti img {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* ส่วนเนื้อหาของข่าว */
+.news-item-noti h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    color: #333;
+}
+
+/* วันที่ของข่าว */
+.news-item-noti .news-date {
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+}
+
+
+@media (max-width: 500px) {
+    #fullUI {
+        display: none;
+    }
+    #notificationUI {
+        display: block !important;
+        width: 100vm;
+    }
+}
