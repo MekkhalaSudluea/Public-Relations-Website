@@ -1,4 +1,4 @@
-// ฟังก์ชันเปลี่ยนหมวดหมู่ในหน้าจอใหญ่
+// ฟังก์ชันโหลดข่าวจากฐานข้อมูล
 function loadNews(category, isNotification = false) {
     let container = isNotification ? document.getElementById('news-container-noti') : document.getElementById('news-container');
     let fbContainer = isNotification ? document.getElementById('facebook-container-noti') : document.getElementById('facebook-container');
@@ -6,7 +6,7 @@ function loadNews(category, isNotification = false) {
     // อัปเดตปุ่มที่ถูกเลือก
     let categoryTabs = isNotification ? document.querySelectorAll("#categoryTabsNoti .nav-link") : document.querySelectorAll("#categoryTabs .nav-link");
     categoryTabs.forEach(btn => btn.classList.remove("active"));
-    
+
     if (category === "news") {
         document.getElementById(isNotification ? "pills-home-tab-noti" : "pills-home-tab").classList.add("active");
         container.style.display = "block";
@@ -15,13 +15,25 @@ function loadNews(category, isNotification = false) {
         document.getElementById(isNotification ? "pills-profile-tab-noti" : "pills-profile-tab").classList.add("active");
         container.style.display = "none";
         fbContainer.style.display = "block";
+        return; // ออกจากฟังก์ชันถ้าเป็น Facebook
     }
 
-    // โหลดข้อมูลข่าว
-    fetch('fetch_news.php?category=' + category)
+    // ล้างข้อมูลเก่า
+    container.innerHTML = "<p>กำลังโหลดข่าว...</p>";
+
+    // ดึงข้อมูลจาก fetch_news.php
+    fetch(`fetch_news.php?category=${category}`)
         .then(response => response.json())
         .then(data => {
-            container.innerHTML = '';
+            container.innerHTML = ''; // ล้างข้อความกำลังโหลด
+
+            // ถ้าไม่มีข่าว
+            if (data.message) {
+                container.innerHTML = `<p>${data.message}</p>`;
+                return;
+            }
+
+            // แสดงข่าว
             data.forEach(news => {
                 const picture = news.ns_picture ? news.ns_picture : '/image/image_b.png';
 
@@ -46,7 +58,7 @@ function loadNews(category, isNotification = false) {
         });
 }
 
-// โหลด Facebook และอัปเดตปุ่มที่เลือก
+// ฟังก์ชันโหลด Facebook Page
 function loadFacebook(isNotification = false) {
     let container = isNotification ? document.getElementById('news-container-noti') : document.getElementById('news-container');
     let fbContainer = isNotification ? document.getElementById('facebook-container-noti') : document.getElementById('facebook-container');
