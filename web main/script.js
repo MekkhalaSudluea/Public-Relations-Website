@@ -15,25 +15,23 @@ function loadNews(category, isNotification = false) {
         document.getElementById(isNotification ? "pills-profile-tab-noti" : "pills-profile-tab").classList.add("active");
         container.style.display = "none";
         fbContainer.style.display = "block";
-        return; // ออกจากฟังก์ชันถ้าเป็น Facebook
+        return;
     }
 
     // ล้างข้อมูลเก่า
     container.innerHTML = "<p>กำลังโหลดข่าว...</p>";
 
     // ดึงข้อมูลจาก fetch_news.php
-    fetch(`fetch_news.php?category=${category}`)
+    fetch(`/fetch_news.php?category=${category}`)
         .then(response => response.json())
         .then(data => {
             container.innerHTML = ''; // ล้างข้อความกำลังโหลด
 
-            // ถ้าไม่มีข่าว
             if (data.message) {
                 container.innerHTML = `<p>${data.message}</p>`;
                 return;
             }
 
-            // แสดงข่าว
             data.forEach(news => {
                 const picture = news.ns_picture ? news.ns_picture : '/image/image_b.png';
 
@@ -58,25 +56,12 @@ function loadNews(category, isNotification = false) {
         });
 }
 
-// ฟังก์ชันโหลด Facebook Page
-function loadFacebook(isNotification = false) {
-    let container = isNotification ? document.getElementById('news-container-noti') : document.getElementById('news-container');
-    let fbContainer = isNotification ? document.getElementById('facebook-container-noti') : document.getElementById('facebook-container');
-
-    let categoryTabs = isNotification ? document.querySelectorAll("#categoryTabsNoti .nav-link") : document.querySelectorAll("#categoryTabs .nav-link");
-    categoryTabs.forEach(btn => btn.classList.remove("active"));
-    document.getElementById(isNotification ? "pills-profile-tab-noti" : "pills-profile-tab").classList.add("active");
-
-    container.style.display = "none";
-    fbContainer.style.display = "block";
-}
-
 // ตั้งค่าเริ่มต้นเมื่อโหลดหน้าเว็บ
 window.onload = function () {
     adjustUI();
-    loadNews('news'); // โหลดข่าว KMITL News เป็นค่าเริ่มต้น
-    loadNews('news', true); // โหลดข่าว KMITL News ในหน้าจอเล็ก
+    loadNews('news'); 
+    loadNews('news', true);
 };
 
-// เรียกใช้เมื่อมีการเปลี่ยนขนาดหน้าจอ
+// ปรับ UI เมื่อเปลี่ยนขนาดหน้าจอ
 window.onresize = adjustUI;
