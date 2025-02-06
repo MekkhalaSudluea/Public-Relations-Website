@@ -2,62 +2,63 @@ html body {
     font-family: "Kanit", "Poppins", sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #fff3e0;
+    /* ปิดขอบข้างที่ทำให้เกิดแถบเลื่อน */
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
 }
 
-body {
-    display: flex;
-    font-size: 18px;
-    font-family: "Kanit", "Poppins", sans-serif;
-    background-color: #fff3e0;
-    min-height: 100vh; /* ตั้งความสูงขั้นต่ำเป็น 100% ของหน้าจอ */
-    flex-direction: column;
+/* จอใหญ่ */
+#fullUI {
+    display: block;
 }
 
-/* search bar */
-.navbar{
+/* Navbar styling */
+.navbar {
     background-color: #fff3e0;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้ navbar */
     padding: 10px 20px;
-    width: 100%;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .search-form{
-    width: 500px; /* กำหนดความกว้างของฟอร์ม */
-    max-width: 100%;
+    width: 100% !important; /* กำหนดความกว้างของฟอร์ม */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
 }
 
 .input-group {
-    display: flex;
-    align-items: center;
+    max-width: 500px;
 }
 
 /* ช่องค้นหา */
 .input-group .form-control {
-    border-radius: 20px; 
-    border: 1px solid #ccc; /* เส้นขอบ */
+    border-radius: 20px ; 
+    border: 1px solid #ccc ; /* เส้นขอบ */
     transition: all 0.3s ease; /* เพิ่มเอฟเฟกต์ตอนโฟกัส */
 }
 
 .input-group .form-control:focus {
-    border-color: #5b98ba;
-    box-shadow: 0 0 5px rgba(91, 152, 186, 0.5);
-    outline: none;
+    border-color: #5b98ba ;
+    box-shadow: 0 0 5px rgba(91, 152, 186, 0.5) ;
+    outline: none ;
 }
 
 /* ปุ่มค้นหา */
 .input-group .btn {
-    color: black;
+    color: black ;
     background-color: #fff;
-    border-width: 1px;
-    border-color: #d3d3d3;
+    border-width: 1px ;
+    border-color: #d3d3d3 ;
     border-radius: 20px ;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    cursor: pointer ;
+    transition: background-color 0.3s ease ;
 }
 
 .input-group .btn:hover {
-    color: black;
-    background-color: #e6510018;
+    color: black !important;
+    background-color: #e6510018 ;
 }
 
 /* ปุ่มล็อกอิน */
@@ -69,6 +70,7 @@ body {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s; /* เพิ่มเอฟเฟกต์เวลาเลื่อนเมาส์ */
+    margin-left: 10px;
 }
 
 .search-form .btn-primary:hover {
@@ -100,95 +102,88 @@ body {
     color: #ff7043;
 }
 
+/* ปุ่มเลือกหมวดหมู่ */
 .nav-pills {
-    display: flex; /* ทำให้ปุ่มเรียงกันในแนวนอน */
+    display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* ให้ปุ่มไปยังบรรทัดถัดไปเมื่อพื้นที่ไม่พอ */
-    background-color: #424242; /* พื้นหลังของพื้นหลังปุ่มสีดำ */
-    border-radius: 15px; /* ความโค้งของมุมพื้นหลัง */
-    max-width: 600px; /* จำกัดความกว้างของพื้นหลัง */
-    width: 100%; /* ให้ขยายเต็มพื้นที่ */
-    margin: 0 auto; /* ให้พื้นหลังอยู่กลางหน้า */
-    padding: 0; /* ลบการ Padding ของพื้นหลัง */
+    background-color: #424242;
+    border-radius: 15px;
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .nav-item {
-    flex-grow: 1; /* ทำให้แต่ละปุ่มขยายเต็มพื้นที่ที่มี */
-    margin: 0; /* ระยะห่างระหว่างปุ่ม */
+    flex-grow: 1;
 }
 
 .nav-link {
-    padding: 15px 0; /* กำหนดขนาดปุ่มในแนวตั้ง */
-    color: #fff;
-    border-radius: 15px; /* มุมโค้งของปุ่ม */
-    text-align: center; /* ให้ข้อความอยู่กลางปุ่ม */
-    width: 100%; /* ปุ่มยืดเต็มพื้นที่ของพื้นหลัง */
-    background-color: transparent; /* พื้นหลังปุ่มเริ่มต้นเป็นโปร่งใส */
+    padding: 15px 0;
+    color: #fff !important;
+    border-radius: 15px;
+    text-align: center;
+    width: 100%;
     transition: background-color 0.3s ease;
 }
 
 /* ปุ่มที่เลือก */
 .nav-pills .nav-link.active {
-    background-color: #e65100; /* ปุ่มสีส้มเมื่อเลือก */
- 
+    background-color: #e65100 !important;
+    color: white;
+    transition: background-color 0.3s ease;
 }
 
 /* ปุ่มที่ไม่ได้เลือกเมื่อเอาเมาส์ไปวาง (hover) */
 .nav-link:hover {
-    background-color: #ff7043; /* สีส้มเมื่อเมาส์ไปวาง */
-    color: #fff;
+    background-color: #ff7043 !important;
+    color: #fff !important;
 }
 
-/*ระยะห่างระหว่างหมวดหมู่กับส่วนของข่าว*/
-.tab-content {
-    margin-top: 15px;
-}
 
 /* กล่องที่ใช้ในการแสดงข่าวทั้งหมด */
 .news-carousel {
-    display: flex; /* ใช้ Flexbox เพื่อให้ข่าวเรียงในแนวนอน */
-    flex-wrap: wrap; /* ให้ข่าวไปยังบรรทัดถัดไปเมื่อพื้นที่เต็ม */
-    justify-content: center; /* จัดข่าวให้อยู่ตรงกลาง */
-    gap: 20px; /* ระยะห่างระหว่างข่าว */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
     padding: 15px 100px;
 }
 
-/* 
-.tab-content{
-    margin-top: 15px;
-}
-*/
-
 /* ส่วนของข่าว */
 .news-item {
-    background-color: #fff; /* สีพื้นหลังของกล่องข่าว */
-    border: 1px solid #ccc; /* เส้นขอบ */
-    border-radius: 10px; /* มุมโค้ง */
-    padding: 1%; /* ระยะห่างภายใน */
-    width: calc(33.333% - 20px); /* กำหนดขนาดคงที่เท่ากัน 3 ข่าวต่อแถว */
-    height: 480px; /* สูง */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เงาของกล่อง */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 1%;
+    width: calc(33.333% - 20px);
+    height: 480px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    position: relative; /* ทำให้สามารถวางตำแหน่งลูกที่เป็น absolute ได้ภายในกล่องนี้ */
+    position: relative;
     margin-bottom: 20px;
 }
-
 
 /* วันที่ของข่าว */
 .news-date {
     display: flex;
-    justify-content: space-between; /* จัดให้เนื้อหาทั้งหมดอยู่ขอบซ้ายและขวา */
-    align-items: center; /* จัดแนวตั้งให้อยู่ตรงกลาง */
-    font-size: 14px; /* ปรับขนาดตัวอักษร */
-    color: #888888; /* สีเทาอ่อน */
-    position: absolute; /* ตำแหน่งของวันที่ไปที่มุมล่างซ้ายของกล่อง */
-    bottom: 20px; /* ระยะห่างจากด้านล่าง */
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #888;
+    position: absolute;
+    bottom: 20px;
     left: 15px;
 }
 
 /* เพิ่มระยะห่างระหว่างไอคอนและวันที่ */
 .news-date i {
     margin-right: 5px; 
+}
+
+/* ส่วนของข่าวเวลาเอาเมาส์มาวางค้างไว้ */
+.news-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
 /* ข่าวจากสำนักไหน */
@@ -210,102 +205,226 @@ body {
     background-color: #ffffff;
 }
 
-
-/* ส่วนของข่าวเวลาเอาเมาส์มาวางค้างไว้ */
-.news-item:hover {
-    transform: scale(1.05); /* ขยายขนาดเล็กๆ เมื่อ hover */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* เพิ่มเงา */
-}
-
 /* ส่วนรูปของข่าว */
 .news-item img {
-    width: 100%; /* ปรับขนาดให้เต็มความกว้างของกล่อง */
-    height: 270px; /* ความสูง */
-    display: block; /* ทำให้รูปภาพอยู่ในบรรทัดใหม่แยกจากเนื้อหา */
-    border-radius: 8px; /* มุมโค้งของรูปภาพ */
-    object-fit: cover; /* ให้รูปภาพครอบคลุมขนาดที่กำหนด */
+    width: 100%;
+    height: 270px;
+    display: block;
+    border-radius: 8px;
+    object-fit: cover;
 }
 
 /* ส่วนเนื้อหาของข่าว */
 .news-item h3 {
     font-family: "Kanit", sans-serif;
-    font-weight: 200;  /* ความเข้มฟ้อน */
-    font-size: 18px; /* ขนาดฟ้อน */
-    margin-top: 25px; /* สร้างระยะห่างระหว่างเนื้อหาข่าวกับรูป */
-    line-height: 1.5; /* ปรับระยะห่างระหว่างบรรทัดของข้อความ */
+    font-weight: 200;
+    font-size: 18px;
+    margin-top: 25px;
+    line-height: 1.5;
     color: #333;
-    text-decoration: none;
 }
 
-/* เมื่อหน้าจอขนาดเล็กสุด (เช่น มือถือ) */
-@media (max-width: 768px) {
-    
-    .nav-pills {
-        flex-direction: column; /* ให้ปุ่มเรียงในแนวตั้ง */
-        width: 100%; /* ให้ปุ่มขยายเต็มหน้าจอ */
-    }
+/* --------------------------------------------------- */
 
-    .nav-item {
-        flex-grow: 1;
-        margin-bottom: 10px; /* เพิ่มระยะห่างระหว่างปุ่มในแนวตั้ง */
-    }
-
-    /* ปรับขนาดของข่าวให้เหมาะสมกับหน้าจอขนาดเล็ก */
-    .news-item {
-        flex: 1 1 100%;
-        width: 100%; /* ปรับขนาดให้เต็มความกว้าง */
-        height: auto;
-    }
-
-    .news-carousel {
-        padding: 0 20px; /* ลดระยะห่างจากขอบในหน้าจอมือถือ */
-    }
-
-    .news-date, .news-category {
-        position: relative;
-        display: inline-block;
-        margin-top: 10px;
-    }
+/* แถบด้านข้าง */
+#notificationUI {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: #fff3e0;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
 }
 
-/* เมื่อหน้าจอขนาดเล็กมาก (เช่น มือถือจอเล็ก) */
-@media (max-width: 480px) {
-    .news-item {
-        width: 100%; /* ปรับขนาดให้เต็มความกว้าง */
-    }
-
-    .search-form {
-        width: 100%; /* ฟอร์มค้นหาปรับขนาดเต็มหน้าจอ */
-    }
-
-    .navbar {
-        padding: 10px; /* ปรับช่องว่างของ navbar */
-    }
-
-    .title h1 {
-        font-size: 32px; /* ปรับขนาดของชื่อให้เล็กลง */
-    }
-
-    .title p {
-        font-size: 20px; /* ปรับขนาดของ subtitle ให้เล็กลง */
-    }
-
-    .nav-pills {
-        flex-direction: column; /* เปลี่ยนทิศทางของปุ่มให้เป็นแนวตั้ง */
-        max-width: 100%; /* ขยายปุ่มให้เต็มพื้นที่ */
-    }
-
-    .nav-link {
-        font-size: 14px; /* ปรับขนาดตัวอักษรของปุ่ม */
-        padding: 10px 0; /* ลดขนาดปุ่ม */
-    }
-
-    .news-item img {
-        height: 220px; /* ปรับขนาดของรูปภาพ */
-    }
-
-    .news-item h3 {
-        font-size: 16px; /* ลดขนาดตัวอักษร */
-    }
+/* ปรับ Facebook Page ให้เต็มจอ */
+#facebook-container-noti {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+/* Facebook Plugin */
+#facebook-container-noti .fb-page {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100vh !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* KMITL News */
+.notification-header {
+    text-align: center !important;
+    margin-top: 10px !important;
+    border-bottom: 2px solid #e65100 !important;
+}
+
+h2 {
+    font-family: "Kanit", sans-serif !important;
+    font-size: 50px !important;
+    line-height: 50px !important;
+    font-weight: 650 !important;
+    color: #e65100 !important; /* สีเข้มขึ้นเพื่อเพิ่มความโดดเด่น */
+    margin-top: 10px !important;
+}
+
+/* ปุ่มเลือกหมวดหมู่ในแถบด้านข้าง */
+.noti-category-tabs {
+    display: flex;
+    justify-content: center;
+    background-color: #424242;
+    border-radius: 15px;
+    max-width: 300px;
+    width: 100%;
+    margin: 10px auto;
+}
+
+.noti-category-tabs .nav-item {
+    flex-grow: 1;
+}
+
+.noti-category-tabs .nav-link {
+    padding: 10px 0;
+    color: #fff;
+    border-radius: 7px;
+    text-align: center;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+/* ปุ่มที่เลือก */
+.noti-category-tabs .nav-link.active {
+    background-color: #e65100;
+}
+
+/* ปุ่มที่ไม่ได้เลือกเมื่อเอาเมาส์ไปวาง (hover) */
+.noti-category-tabs .nav-link:hover {
+    background-color: #ff7043;
+    color: #fff;
+}
+
+/* กล่องที่ใช้ในการแสดงข่าวทั้งหมด */
+.news-list {
+    margin-top: 15px;
+}
+
+/* ส่วนของข่าว */
+#notificationUI .news-item-noti{
+    display: flex;  /* ให้รูปและเนื้อหาอยู่ในแนวนอน */
+    align-items: flex-start;  /* จัดให้เนื้อหาอยู่ด้านบน */
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    gap: 10px;
+    position: relative; /* ใช้สำหรับจัดตำแหน่งของวันที่และหมวดหมู่ */
+    min-height: 100px; /* กำหนดความสูงขั้นต่ำเพื่อรองรับเนื้อหา */
+}
+
+/* รูปของข่าว */
+#notificationUI .news-item-noti img {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    object-fit: cover;
+    flex-shrink: 0; /* ป้องกันไม่ให้รูปบีบตัว */
+}
+
+/* เนื้อหาข่าว (หัวข้อ + วันที่ + หมวดหมู่) */
+#notificationUI .news-title {
+    flex: 1; /* ให้ขยายเต็มพื้นที่ด้านขวา */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* ให้ข้อความอยู่ด้านบน */
+    /* justify-content: flex-start; */
+    padding-left: 10px;
+    /* text-align: right; จัดข้อความทั้งหมดไปทางขวา */
+}
+
+/* หัวข้อข่าว */
+#notificationUI .news-title h3 {
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+    color: #333;
+    line-height: 1.4;
+    margin-top: 0px; /* ปรับให้ชิดด้านบน */
+}
+
+/* วันที่และหมวดหมู่ */
+#notificationUI .news-details {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+    /* text-align: right; จัดข้อความไปทางขวา */
+    /* position: absolute; */
+    /* bottom: 10px; */
+    /* right: 10px; */
+    /* width: 100%; กินความกว้างทั้งหมดของกล่อง */
+    /* text-align: right; จัดข้อความไปทางขวา */
+    /* white-space: nowrap; ป้องกันการขึ้นบรรทัดใหม่ */
+}
+
+/* ไอคอนนาฬิกา */
+#notificationUI .news-details i {
+    margin-right: 5px;
+}
+
+/* วันที่ */
+#notificationUI .news-date {
+    display: flex;
+    align-items: center; /* จัดให้ไอคอนและตัวหนังสืออยู่แนวเดียวกัน */
+    gap: 5px; /* เพิ่มช่องว่างระหว่างไอคอนกับวันที่ */
+    font-size: 12px;
+    color: #666; /* ใช้สีเดียวกับ .news-details */
+    margin: 0; /* ป้องกันไม่ให้มี margin ที่ไม่จำเป็น */
+    white-space: nowrap; /* ป้องกันขึ้นบรรทัดใหม่ */
+    right: 70px;
+    top: 102px;
+}
+
+/*  ข่าวมาจากสำนักไหน */
+#notificationUI .news-category {
+    font-size: 12px;
+    padding: 3px 8px;
+    background-color: white;
+    border-radius: none;
+    color: #ff9800;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    white-space: nowrap;
+    top: 30px;
+}
+
+#notificationUI .news-category:hover {
+    color: #e65100;
+    background-color: #ffffff;
+}
+
+/* ซ่อน scrollbar */
+::-webkit-scrollbar {
+    display: none;
+}
+
+@media (max-width: 500px) {
+    #fullUI {
+        display: none;
+    }
+    #notificationUI {
+        display: block !important;
+        width: 100vm !important;
+    }
+}
