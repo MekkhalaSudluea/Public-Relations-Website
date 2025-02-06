@@ -1,24 +1,23 @@
-function adjustUI() {
-    let fullUI = document.getElementById("fullUI");
-    let notificationUI = document.getElementById("notificationUI");
-
-    if (window.innerWidth <= 500) {
-        fullUI.style.display = "none";
-        notificationUI.style.display = "block";
-    } else {
-        fullUI.style.display = "block";
-        notificationUI.style.display = "none";
-    }
-}
-
-// โหลดข่าวและซ่อน Facebook ในหน้าจอเล็ก
+// ฟังก์ชันเปลี่ยนหมวดหมู่ในหน้าจอใหญ่
 function loadNews(category, isNotification = false) {
     let container = isNotification ? document.getElementById('news-container-noti') : document.getElementById('news-container');
     let fbContainer = isNotification ? document.getElementById('facebook-container-noti') : document.getElementById('facebook-container');
 
-    container.style.display = "block";
-    fbContainer.style.display = "none";
+    // อัปเดตปุ่มที่ถูกเลือก
+    let categoryTabs = isNotification ? document.querySelectorAll("#categoryTabsNoti .nav-link") : document.querySelectorAll("#categoryTabs .nav-link");
+    categoryTabs.forEach(btn => btn.classList.remove("active"));
+    
+    if (category === "news") {
+        document.getElementById(isNotification ? "pills-home-tab-noti" : "pills-home-tab").classList.add("active");
+        container.style.display = "block";
+        fbContainer.style.display = "none";
+    } else {
+        document.getElementById(isNotification ? "pills-profile-tab-noti" : "pills-profile-tab").classList.add("active");
+        container.style.display = "none";
+        fbContainer.style.display = "block";
+    }
 
+    // โหลดข้อมูลข่าว
     fetch('fetch_news.php?category=' + category)
         .then(response => response.json())
         .then(data => {
@@ -47,10 +46,14 @@ function loadNews(category, isNotification = false) {
         });
 }
 
-// โหลด Facebook และซ่อนข่าว
+// โหลด Facebook และอัปเดตปุ่มที่เลือก
 function loadFacebook(isNotification = false) {
     let container = isNotification ? document.getElementById('news-container-noti') : document.getElementById('news-container');
     let fbContainer = isNotification ? document.getElementById('facebook-container-noti') : document.getElementById('facebook-container');
+
+    let categoryTabs = isNotification ? document.querySelectorAll("#categoryTabsNoti .nav-link") : document.querySelectorAll("#categoryTabs .nav-link");
+    categoryTabs.forEach(btn => btn.classList.remove("active"));
+    document.getElementById(isNotification ? "pills-profile-tab-noti" : "pills-profile-tab").classList.add("active");
 
     container.style.display = "none";
     fbContainer.style.display = "block";
