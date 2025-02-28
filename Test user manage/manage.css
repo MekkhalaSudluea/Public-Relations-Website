@@ -96,7 +96,14 @@ h4{
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 3rem;
+  text-shadow: 0px 2px 0px rgba(0, 0, 0, 0.3);
+}
+
+.content p {
+  font-size: 1.4rem;
+  margin-top: 25px;
+  text-decoration: underline;
 }
 
 /* User , Add User */
